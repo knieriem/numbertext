@@ -1,3 +1,3 @@
-module github.com/knieriem/numbers
+module github.com/knieriem/numbertext
 
 require golang.org/x/text v0.3.2

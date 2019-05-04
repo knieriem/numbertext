@@ -1,4 +1,4 @@
-package numbers
+package numbertext
 
 import (
 	"golang.org/x/text/language"
