@@ -23,7 +23,7 @@ var wordsMap = map[language.Tag]*table{
 	language.English: {
 		wordsSep:            " ",
 		tensSep:             "-",
-		hundredsConjunction: " and ",
+		hundredsConjunction: "and",
 		zero:                "zero",
 		oneOnly:             "one",
 		onesBeforeTens:      false,
@@ -165,9 +165,12 @@ func Words(n int, hasUnit bool, lang language.Tag) string {
 	}
 out:
 	if hundreds != 0 {
-		s = t.ones[hundreds] + t.wordsSep + t.mult[1] + t.hundredsConjunction + s
+		s = t.ones[hundreds] + t.wordsSep + t.mult[1] + t.wordsSep + t.hundredsConjunction + t.wordsSep + s
 	}
 	if thousands != 0 {
+		if hundreds == 0 {
+			s = t.hundredsConjunction + t.wordsSep + s
+		}
 		s = t.ones[thousands] + t.wordsSep + t.mult[2] + t.wordsSep + s
 	}
 	return s
