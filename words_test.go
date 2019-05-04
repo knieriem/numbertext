@@ -1,9 +1,9 @@
 package numbertext
 
 import (
+	"strconv"
 	"strings"
 	"testing"
-	"strconv"
 
 	"golang.org/x/text/language"
 )
@@ -36,9 +36,9 @@ var data = `
 `
 
 type testItem struct {
-	number int
+	number  int
 	hasUnit bool
-	text []string
+	text    []string
 }
 
 func TestWords(t *testing.T) {
@@ -71,7 +71,7 @@ func parseTestData() []*testItem {
 			it = new(testItem)
 			if strings.HasSuffix(line, "€") {
 				it.hasUnit = true
-				line = line[:len(line) - len("€")]
+				line = line[:len(line)-len("€")]
 			}
 			v, err := strconv.Atoi(line)
 			if err != nil {
